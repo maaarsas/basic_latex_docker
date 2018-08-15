@@ -2,7 +2,7 @@ FROM blang/latex:ubuntu
 
 MAINTAINER Martynas Šapalas
 
-ADD ./config/fonts/Palemonas-2.1 /usr/share/fonts/truetype/Palemonas-2.1
+ADD ./fonts/Palemonas-2.1 /usr/share/fonts/truetype/Palemonas-2.1
 
 ARG SRC_DIR="/data"
 ARG XELATEX_RUN="xelatex -output-directory ${SRC_DIR}/out document.tex"
