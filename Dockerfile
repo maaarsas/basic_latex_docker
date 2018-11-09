@@ -8,6 +8,9 @@ ARG SRC_DIR="/data"
 ARG XELATEX_RUN="xelatex -output-directory ${SRC_DIR}/out document.tex"
 ARG BIBER_RUN="biber -output-directory ${SRC_DIR}/out ${SRC_DIR}/out/document"
 
+ADD ./bin/gdrive-linux-x64 ${SRC_DIR}/bin/gdrive-linux-x64
+ADD ./script/upload.sh ${SRC_DIR}/script/upload.sh
+
 RUN printf '#!/bin/bash\ncd %s \n%s \n%s \n%s' "${SRC_DIR}/config" "${XELATEX_RUN}" "${BIBER_RUN}" "${XELATEX_RUN}" >> /usr/bin/compile
 RUN ["chmod", "+x", "/usr/bin/compile"]
 
