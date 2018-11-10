@@ -1,4 +1,9 @@
 #!/bin/sh
+
+if [ -z "$GDRIVE_DIR" ]; then
+    exit 1
+fi
+
 DIR=/data/config
 
 FIXED_BRANCH=$(echo $BRANCH | sed 's/\//-/g')
