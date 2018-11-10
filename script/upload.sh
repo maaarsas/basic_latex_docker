@@ -1,5 +1,5 @@
 #!/bin/sh
-DIR=$(dirname "$0")
+DIR=/data/config
 
 FIXED_BRANCH=$(echo $BRANCH | sed 's/\//-/g')
 FILE_DIR=$DIR/../out
@@ -11,5 +11,5 @@ echo "Copying $FILE to $DEST_FILE"
 mv $FILE $DEST_FILE
 
 echo "Start Google Drive upload (file name: $DEST_FILE)"
-./bin/gdrive-linux-x64 upload --refresh-token $GDRIVE_REFRESH_TOKEN --parent $GDRIVE_DIR $DEST_FILE
+gdrive-linux-x64 upload --refresh-token $GDRIVE_REFRESH_TOKEN --parent $GDRIVE_DIR $DEST_FILE
 echo "Finished Google Drive upload"
